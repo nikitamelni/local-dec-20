@@ -13,8 +13,9 @@ export default createPreviewHandler({
       return;
     }
 
-    console.log('req: ', req);
+    const { locale } = req?.previewData;
+    console.log('preview locale: ', locale);
 
-    composition = await mergeWithGlobalComposition(composition, 'en-CA');
+    composition = await mergeWithGlobalComposition(composition, locale, true);
   },
 });

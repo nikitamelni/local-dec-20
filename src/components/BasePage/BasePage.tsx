@@ -70,9 +70,6 @@ const BasePage: FC<BasePageProps> = ({
   styles,
   context,
 }) => {
-  const { isContextualEditing } = useUniformCurrentComposition();
-  console.log('isContextualEditing', isContextualEditing);
-  ``;
   return (
     <UniformComposition
       data={composition}

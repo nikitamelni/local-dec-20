@@ -69,8 +69,10 @@ export const getServerSideProps = withUniformGetServerSideProps({
       resolvedUrl: _context.resolvedUrl,
     });
 
-    const finalComposition = await mergeWithGlobalComposition(composition, _context.locale);
-    console.log('conetext locale: ', _context.locale);
+    const locale = _context.locale === 'default' ? 'en-CA' : _context.locale;
+
+    const finalComposition = await mergeWithGlobalComposition(composition, locale, preview);
+    console.log('slug locale: ', _context.locale);
 
     return {
       props: { preview, data: finalComposition || null, context: { breadcrumbs } },
